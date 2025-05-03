@@ -86,9 +86,8 @@
                                     <div class="d-none" id="submitSuccessMessage">
                                         <div class="text-center mb-3">
                                             <div class="fw-bolder">Form submission successful!</div>
-                                            To activate this form, sign up at
+                                              You may close this window now.
                                             <br />
-                                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                                         </div>
                                     </div>
                                     <!-- Submit error message-->
@@ -113,9 +112,9 @@
                     <div class="col-auto">
                         <a class="small" href="mailto:vanonyina@gmail.com" style="text-decoration:none;">vanonyina@gmail.com</a>
                         <span class="mx-1">&middot;</span>
-                        <a class="small" href="tel:+233208696923" style="text-decoration:none;">+233208696923</a>
+                
                         <span class="mx-1">&middot;</span>
-                        <a class="small" style="text-decoration:none;">Accra, Ghana</a>
+                        <a class="small" style="text-decoration:none;">United Kingdom</a>
                     </div>
                 </div>
             </div>
@@ -129,5 +128,24 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script>
+        document.getElementById("contactForm").addEventListener("submit", function (e) {e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        const subject = `New message from ${name}`;
+        const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
+
+        // Replace with your actual email address
+        window.location.href = `mailto:vanonyina@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+        // Show success message (optional)
+        document.getElementById("submitSuccessMessage").classList.remove("d-none");
+    });
+</script>
+
     </body>
 </html>
